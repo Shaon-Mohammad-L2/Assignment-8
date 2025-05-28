@@ -16,7 +16,7 @@ router.get("/", customer_controller_1.CustomerControllers.fetchAllCustomers);
 // get single customer by id
 router.get("/:id", (0, validateRequest_1.default)(customer_validationZodSchema_1.CustomerValidation.getSingleCustomerID_ValidationSchema), customer_controller_1.CustomerControllers.getSingleCustomerById);
 // update customer by id
-router.put("/:id", (0, validateRequest_1.default)(customer_validationZodSchema_1.CustomerValidation.getSingleCustomerID_ValidationSchema), customer_controller_1.CustomerControllers.updateCustomerById);
+router.put("/:id", (0, validateRequest_1.default)(customer_validationZodSchema_1.CustomerValidation.updateCustomerValidationSchema), customer_controller_1.CustomerControllers.updateCustomerById);
 // delete customer by id
 router.delete("/:id", (0, validateRequest_1.default)(customer_validationZodSchema_1.CustomerValidation.getSingleCustomerID_ValidationSchema), customer_controller_1.CustomerControllers.deleteCustomerById);
 exports.CustomerRoutes = router;
