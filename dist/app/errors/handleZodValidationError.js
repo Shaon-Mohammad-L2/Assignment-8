@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const handleZodValidationError = (error) => {
-    const errorSources = error.issues.map((issues) => {
+    const errorSources = error.issues.map((issue) => {
+        const removeFirstIndexFromPath = issue.path.slice(1);
         return {
-            path: issues === null || issues === void 0 ? void 0 : issues.path[issues.path.length - 1],
-            message: issues.message,
+            //       path: issues?.path[issues.path.length - 1],
+            path: removeFirstIndexFromPath.join("/"), // full, readable path e.g. body.variants.0.sku
+            message: issue.message,
         };
     });
-    const statusCode = 400;
-    const message = "Validation Error";
     return {
-        statusCode,
-        message,
+        statusCode: 400,
+        message: "Validation Error",
         errorSources,
     };
 };
