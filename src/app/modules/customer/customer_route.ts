@@ -25,7 +25,7 @@ router.get(
 // update customer by id
 router.put(
   "/:id",
-  validateRequest(CustomerValidation.getSingleCustomerID_ValidationSchema),
+  validateRequest(CustomerValidation.updateCustomerValidationSchema),
   CustomerControllers.updateCustomerById
 );
 // delete customer by id
