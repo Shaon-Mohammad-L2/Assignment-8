@@ -13,3 +13,46 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model Customer {
+  customerId String @unique @id @default(uuid())
+  name String
+  email String @unique
+  phone String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  bike Bike[]
+
+  @@map("customers")
+}
+
+model Bike {
+  bikeId String @unique @id @default(uuid())
+  brand String
+  model String
+  year Int 
+  customerId String 
+  customer Customer @relation(fields: [customerId], references: [customerId])
+  serviceRecords ServiceRecord[]
+
+  @@map("bikes")
+}
+
+model ServiceRecord {
+  serviceId String @unique @id @default(uuid())
+  bikeId String
+  bike Bike @relation(fields: [bikeId], references: [bikeId])
+  serviceDate DateTime
+  completionDate DateTime?
+  description String
+  status ServiceStatus
+
+  @@map("service_records")
+}
+
+enum ServiceStatus {
+  PENDING
+  IN_PROGRESS
+  DONE
+}
