@@ -51,7 +51,25 @@ const createServiceIntoDB = (paylaod) => __awaiter(void 0, void 0, void 0, funct
 });
 // fetch all services
 const fetchAllServicesFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const services = yield prisma_2.default.serviceRecord.findMany();
+    const services = yield prisma_2.default.serviceRecord.findMany({
+        include: {
+            bike: {
+                select: {
+                    brand: true,
+                    model: true,
+                    year: true,
+                    customer: {
+                        select: {
+                            customerId: true,
+                            name: true,
+                            phone: true,
+                            email: true,
+                        },
+                    },
+                },
+            },
+        },
+    });
     return services;
 });
 // fetch single sercice by id
@@ -59,6 +77,23 @@ const fetchSingleServiceById = (serviceId) => __awaiter(void 0, void 0, void 0, 
     const service = yield prisma_2.default.serviceRecord.findUnique({
         where: {
             serviceId,
+        },
+        include: {
+            bike: {
+                select: {
+                    brand: true,
+                    model: true,
+                    year: true,
+                    customer: {
+                        select: {
+                            customerId: true,
+                            name: true,
+                            phone: true,
+                            email: true,
+                        },
+                    },
+                },
+            },
         },
     });
     return service || null;

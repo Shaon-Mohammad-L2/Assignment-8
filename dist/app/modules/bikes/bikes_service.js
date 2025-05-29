@@ -23,8 +23,14 @@ const createBikeIntoDB = (payload) => __awaiter(void 0, void 0, void 0, function
     if (!customer) {
         throw new AppError_1.default(404, "customerId", "Customer id not found");
     }
+    const data = {
+        brand: payload.brand,
+        model: payload.model,
+        year: payload.year,
+        customerId: payload.customerId,
+    };
     const bike = yield prisma_1.default.bike.create({
-        data: payload,
+        data,
     });
     return bike;
 });

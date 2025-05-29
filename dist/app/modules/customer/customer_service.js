@@ -23,8 +23,13 @@ const createCustomer = (payload) => __awaiter(void 0, void 0, void 0, function* 
     if (exist) {
         throw new AppError_1.default(400, "email", "Customer already exists with this email");
     }
+    const data = {
+        name: payload.name,
+        email: payload.email,
+        phone: payload.phone,
+    };
     const result = yield prisma_1.default.customer.create({
-        data: payload,
+        data,
     });
     return result;
 });
@@ -71,10 +76,32 @@ const deleteCustomerIntoDB = (customerId) => __awaiter(void 0, void 0, void 0, f
     if (!extCustomer) {
         throw new AppError_1.default(404, "id", "Customer Not found");
     }
-    yield prisma_1.default.customer.delete({
-        where: { customerId },
-    });
-    return { message: "Customer deleted successfully" };
+    try {
+        yield prisma_1.default.$transaction((transactionClient) => __awaiter(void 0, void 0, void 0, function* () {
+            const bikes = yield transactionClient.bike.findMany({
+                where: { customerId },
+                select: { bikeId: true },
+            });
+            const bikeIds = bikes.map((b) => b.bikeId);
+            yield transactionClient.serviceRecord.deleteMany({
+                where: {
+                    bikeId: {
+                        in: bikeIds,
+                    },
+                },
+            });
+            yield transactionClient.bike.deleteMany({
+                where: { customerId },
+            });
+            yield transactionClient.customer.delete({
+                where: { customerId },
+            });
+        }));
+        return { message: "Customer All Records deleted successfully" };
+    }
+    catch (err) {
+        throw new AppError_1.default(400, "", "Error deleting customer records");
+    }
 });
 exports.CustomerServices = {
     createCustomer,
