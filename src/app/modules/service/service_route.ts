@@ -9,7 +9,7 @@ const router = express.Router();
 router.post(
   "/",
   validateRequest(ServiceValidation.createServiceValidationZodSchema),
-  ServiceControllers.createService
+  ServiceControllers.createService,
 );
 
 // fetch all services
@@ -22,14 +22,14 @@ router.get("/status", ServiceControllers.getOverDueServices);
 router.get(
   "/:id",
   validateRequest(ServiceValidation.getSingleServiceID_ValidationSchema),
-  ServiceControllers.getSingleServiceById
+  ServiceControllers.getSingleServiceById,
 );
 
 // update service by id
 router.put(
   "/:id/complete",
   validateRequest(ServiceValidation.updateSevice_ValidationSchema),
-  ServiceControllers.updateServiceByID
+  ServiceControllers.updateServiceByID,
 );
 
 export const ServiceRoutes = router;

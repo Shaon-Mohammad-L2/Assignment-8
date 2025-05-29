@@ -27,7 +27,7 @@ const fetchAllCustomers = catchAsync(async (req, res) => {
 // get single customer by id controller
 const getSingleCustomerById = catchAsync(async (req, res) => {
   const result = await CustomerServices.fetchSingleCustomerByIdIntoDB(
-    req.params.id
+    req.params.id,
   );
   sendResponse(res, {
     status: 200,
@@ -41,7 +41,7 @@ const getSingleCustomerById = catchAsync(async (req, res) => {
 const updateCustomerById = catchAsync(async (req, res) => {
   const result = await CustomerServices.updateCustomerInfoIntoDB(
     req.params.id,
-    req.body
+    req.body,
   );
   sendResponse(res, {
     status: 200,

@@ -9,7 +9,7 @@ const router = express.Router();
 router.post(
   "/",
   validateRequest(BikeValidation.createBikeValidationZodSchema),
-  BikeControllers.createBike
+  BikeControllers.createBike,
 );
 
 // fetch all bikes.
@@ -19,7 +19,7 @@ router.get("/", BikeControllers.fetchAllBikes);
 router.get(
   "/:bikeId",
   validateRequest(BikeValidation.getSingleBikeID_ValidationSchema),
-  BikeControllers.fetchSingleBike
+  BikeControllers.fetchSingleBike,
 );
 
 export const BikeRoutes = router;

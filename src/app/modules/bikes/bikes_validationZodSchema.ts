@@ -28,7 +28,7 @@ const createBikeValidationZodSchema = z.object({
         .min(10, { message: "Customer ID must be at least 10 characters long" })
         .max(50, { message: "Customer ID must not exceed 50 characters" }),
     },
-    { required_error: "Body is required" }
+    { required_error: "Body is required" },
   ),
 });
 

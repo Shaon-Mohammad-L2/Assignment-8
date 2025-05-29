@@ -42,7 +42,25 @@ const createServiceIntoDB = async (paylaod: ServiceRecord) => {
 
 // fetch all services
 const fetchAllServicesFromDB = async () => {
-  const services = await prisma.serviceRecord.findMany();
+  const services = await prisma.serviceRecord.findMany({
+    include: {
+      bike: {
+        select: {
+          brand: true,
+          model: true,
+          year: true,
+          customer: {
+            select: {
+              customerId: true,
+              name: true,
+              phone: true,
+              email: true,
+            },
+          },
+        },
+      },
+    },
+  });
 
   return services;
 };
@@ -53,6 +71,23 @@ const fetchSingleServiceById = async (serviceId: string) => {
     where: {
       serviceId,
     },
+    include: {
+      bike: {
+        select: {
+          brand: true,
+          model: true,
+          year: true,
+          customer: {
+            select: {
+              customerId: true,
+              name: true,
+              phone: true,
+              email: true,
+            },
+          },
+        },
+      },
+    },
   });
 
   return service || null;
@@ -61,7 +96,7 @@ const fetchSingleServiceById = async (serviceId: string) => {
 // update service by id.
 const updateService_byID_intoDB = async (
   serviceId: string,
-  payload: Partial<ServiceRecord>
+  payload: Partial<ServiceRecord>,
 ) => {
   const service = await prisma.serviceRecord.findUnique({
     where: { serviceId },
@@ -78,7 +113,7 @@ const updateService_byID_intoDB = async (
     throw new AppError(
       400,
       "completionDate",
-      "Completion date must be after service date"
+      "Completion date must be after service date",
     );
   }
   const updateData = {

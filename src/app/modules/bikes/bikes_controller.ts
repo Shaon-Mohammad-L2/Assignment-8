@@ -28,7 +28,7 @@ const fetchAllBikes = catchAsync(async (req, res) => {
 // fetch single bike.
 const fetchSingleBike = catchAsync(async (req, res) => {
   const result = await BikesServices.fetchSingleBikeByIdIntoDB(
-    req.params.bikeId
+    req.params.bikeId,
   );
   sendResponse(res, {
     status: 200,

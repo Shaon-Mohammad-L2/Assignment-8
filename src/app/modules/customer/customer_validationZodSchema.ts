@@ -45,7 +45,7 @@ const createCustomerValidationSchema = z.object({
           message: "Phone number must contain only numbers",
         }),
     },
-    { required_error: "Body is required" }
+    { required_error: "Body is required" },
   ),
 });
 
@@ -112,7 +112,7 @@ const updateCustomerValidationSchema = z.object({
         })
         .optional(),
     },
-    { required_error: "Body is required" }
+    { required_error: "Body is required" },
   ),
 });
 export const CustomerValidation = {

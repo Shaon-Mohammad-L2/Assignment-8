@@ -39,7 +39,7 @@ const getSingleServiceById = catchAsync(async (req, res) => {
 const updateServiceByID = catchAsync(async (req, res) => {
   const result = await ServiceServices.updateService_byID_intoDB(
     req.params.id,
-    req.body
+    req.body,
   );
   sendResponse(res, {
     status: 200,

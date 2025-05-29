@@ -10,8 +10,14 @@ const createBikeIntoDB = async (payload: Bike) => {
   if (!customer) {
     throw new AppError(404, "customerId", "Customer id not found");
   }
+  const data = {
+    brand: payload.brand,
+    model: payload.model,
+    year: payload.year,
+    customerId: payload.customerId,
+  };
   const bike = await prisma.bike.create({
-    data: payload,
+    data,
   });
   return bike;
 };

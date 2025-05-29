@@ -10,8 +10,14 @@ const createCustomer = async (payload: Customer) => {
   if (exist) {
     throw new AppError(400, "email", "Customer already exists with this email");
   }
+  const data = {
+    name: payload.name,
+    email: payload.email,
+    phone: payload.phone,
+  };
+
   const result = await prisma.customer.create({
-    data: payload,
+    data,
   });
 
   return result;
@@ -34,7 +40,7 @@ const fetchSingleCustomerByIdIntoDB = async (customerId: string) => {
 // update customer information.
 const updateCustomerInfoIntoDB = async (
   customerId: string,
-  payload: Partial<Customer>
+  payload: Partial<Customer>,
 ) => {
   if (payload.email) {
     throw new AppError(400, "email", "You can not change email");
@@ -66,10 +72,37 @@ const deleteCustomerIntoDB = async (customerId: string) => {
   if (!extCustomer) {
     throw new AppError(404, "id", "Customer Not found");
   }
-  await prisma.customer.delete({
-    where: { customerId },
-  });
-  return { message: "Customer deleted successfully" };
+
+  try {
+    await prisma.$transaction(async (transactionClient) => {
+      const bikes = await transactionClient.bike.findMany({
+        where: { customerId },
+        select: { bikeId: true },
+      });
+
+      const bikeIds = bikes.map((b) => b.bikeId);
+
+      await transactionClient.serviceRecord.deleteMany({
+        where: {
+          bikeId: {
+            in: bikeIds,
+          },
+        },
+      });
+
+      await transactionClient.bike.deleteMany({
+        where: { customerId },
+      });
+
+      await transactionClient.customer.delete({
+        where: { customerId },
+      });
+    });
+
+    return { message: "Customer All Records deleted successfully" };
+  } catch (err) {
+    throw new AppError(400, "", "Error deleting customer records");
+  }
 };
 export const CustomerServices = {
   createCustomer,

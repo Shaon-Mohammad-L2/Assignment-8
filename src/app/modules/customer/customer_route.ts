@@ -9,7 +9,7 @@ const router = express.Router();
 router.post(
   "/",
   validateRequest(CustomerValidation.createCustomerValidationSchema),
-  CustomerControllers.createCustomer
+  CustomerControllers.createCustomer,
 );
 
 // get all customers
@@ -19,19 +19,19 @@ router.get("/", CustomerControllers.fetchAllCustomers);
 router.get(
   "/:id",
   validateRequest(CustomerValidation.getSingleCustomerID_ValidationSchema),
-  CustomerControllers.getSingleCustomerById
+  CustomerControllers.getSingleCustomerById,
 );
 
 // update customer by id
 router.put(
   "/:id",
   validateRequest(CustomerValidation.updateCustomerValidationSchema),
-  CustomerControllers.updateCustomerById
+  CustomerControllers.updateCustomerById,
 );
 // delete customer by id
 router.delete(
   "/:id",
   validateRequest(CustomerValidation.getSingleCustomerID_ValidationSchema),
-  CustomerControllers.deleteCustomerById
+  CustomerControllers.deleteCustomerById,
 );
 export const CustomerRoutes = router;
