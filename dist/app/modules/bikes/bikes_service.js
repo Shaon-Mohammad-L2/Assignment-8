@@ -30,13 +30,32 @@ const createBikeIntoDB = (payload) => __awaiter(void 0, void 0, void 0, function
 });
 // fetch all bikes from db.
 const fetchAllBikesFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const bikes = yield prisma_1.default.bike.findMany();
+    const bikes = yield prisma_1.default.bike.findMany({
+        include: {
+            customer: {
+                select: {
+                    name: true,
+                    phone: true,
+                    email: true,
+                },
+            },
+        },
+    });
     return bikes;
 });
 // fetch single bike by id
 const fetchSingleBikeByIdIntoDB = (bikeId) => __awaiter(void 0, void 0, void 0, function* () {
     const bike = yield prisma_1.default.bike.findUnique({
         where: { bikeId },
+        include: {
+            customer: {
+                select: {
+                    name: true,
+                    phone: true,
+                    email: true,
+                },
+            },
+        },
     });
     return bike || null;
 });
