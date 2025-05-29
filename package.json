@@ -7,6 +7,7 @@
     "prod": "NODE_ENV=production node ./dist/server.js",
     "start": "node dist/server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "postinstall": "prisma generate",
     "build": "tsc",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
@@ -33,6 +34,7 @@
     "typescript-eslint": "^8.32.1"
   },
   "dependencies": {
+    "@prisma/client": "^6.8.2",
     "@types/cookie-parser": "^1.4.8",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
