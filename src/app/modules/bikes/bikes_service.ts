@@ -18,7 +18,17 @@ const createBikeIntoDB = async (payload: Bike) => {
 
 // fetch all bikes from db.
 const fetchAllBikesFromDB = async () => {
-  const bikes = await prisma.bike.findMany();
+  const bikes = await prisma.bike.findMany({
+    include: {
+      customer: {
+        select: {
+          name: true,
+          phone: true,
+          email: true,
+        },
+      },
+    },
+  });
   return bikes;
 };
 
@@ -26,6 +36,15 @@ const fetchAllBikesFromDB = async () => {
 const fetchSingleBikeByIdIntoDB = async (bikeId: string) => {
   const bike = await prisma.bike.findUnique({
     where: { bikeId },
+    include: {
+      customer: {
+        select: {
+          name: true,
+          phone: true,
+          email: true,
+        },
+      },
+    },
   });
   return bike || null;
 };
