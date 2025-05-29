@@ -52,7 +52,7 @@ model ServiceRecord {
 }
 
 enum ServiceStatus {
-  PENDING
-  IN_PROGRESS
-  DONE
+  PENDING      @map("pending")
+  IN_PROGRESS  @map("in-progress")
+  DONE         @map("done")
 }
