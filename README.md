@@ -57,3 +57,32 @@ A backend API for managing customers, bikes, and service records at a bike servi
    ```
 
    The API will run at `http://localhost:5000` by default.
+
+## Key Features
+
+* **Customer Management**
+
+  * Create, read, update, delete customers (`/api/customers`)
+  * Get a specific customer by ID (`/api/customers/:customerId`)
+  * Delete a specific customer by ID (`/api/customers/:customerId`)	
+	
+* **Bike Management**
+
+  * Add, view, update bikes (`/api/bikes`)
+  * Get a specific bike by ID (`/api/bikes/:bikeId`)
+
+* **Service Record Management**
+
+  * Create, read, update services (`/api/services`)
+  * Get a specific service record by ID (`/api/services/:serviceId`)
+  * Mark services as completed (`/api/services/:serviceId/complete`)
+
+* **Overdue & Pending Services**
+
+  * Endpoint to retrieve jobs pending or in-progress older than 7 days (`/api/services/status`)
+
+* **Error Handling**
+
+  * Standardized error response format with status codes and optional stack trace in development
+
+---
