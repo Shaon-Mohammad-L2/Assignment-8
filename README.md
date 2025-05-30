@@ -22,3 +22,38 @@ A backend API for managing customers, bikes, and service records at a bike servi
 * **Linting & Formatting:** ESLint, Prettier
 * **Environment Management:** dotenv
 * **Error Handling:** Zod
+
+## Setup Guide
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/Shaon-Mohammad-L2/Assignment-8
+   ```
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+3. **Environment variables**
+
+   * Create `.env` File
+   * Set the following:
+
+     ```ini
+     NODE_ENV=production or development
+     DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
+     PORT=5000
+     ```
+4. **Database migrations**
+
+   ```bash
+   npx prisma migrate dev 
+   ```
+5. **Start the server**
+
+   ```bash
+   npm run dev
+   ```
+
+   The API will run at `http://localhost:5000` by default.
