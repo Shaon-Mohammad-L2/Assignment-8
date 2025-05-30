@@ -12,3 +12,13 @@ A backend API for managing customers, bikes, and service records at a bike servi
 
 [View the repository code here](https://github.com/Shaon-Mohammad-L2/Assignment-8)
 
+## Tech Stack
+
+* **Runtime:** Node.js
+* **Web Framework:** Express.js
+* **Language:** TypeScript
+* **ORM:** Prisma
+* **Database:** PostgreSQL
+* **Linting & Formatting:** ESLint, Prettier
+* **Environment Management:** dotenv
+* **Error Handling:** Zod
