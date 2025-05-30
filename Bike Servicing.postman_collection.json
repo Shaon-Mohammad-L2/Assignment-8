@@ -1,0 +1,793 @@
+{
+	"info": {
+		"_postman_id": "1e695009-22c6-42fa-b6bf-be6379b298c0",
+		"name": "Bike Servicing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39964775"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/customers",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe two\",\r\n  \"email\": \"john.doe2@example.com\",\r\n  \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/customers",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Customers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/customers",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Fetch All Customers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/customers",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Customer by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/customers/6fe225c0-6364-45c0-a1d8-44be7e0269da",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"customers",
+								"6fe225c0-6364-45c0-a1d8-44be7e0269da"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Get Single Customer by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/customers/5360024c-092a-4051-8ae1-80ae175e682a",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"customers",
+								"5360024c-092a-4051-8ae1-80ae175e682a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/customers/fcedd59d-260a-447e-b628-73a1c4481bac",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"customers",
+								"fcedd59d-260a-447e-b628-73a1c4481bac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Delete Customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/customers/d161fb7c-0168-442c-b2fc-fdcbc9fc83e0",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"customers",
+								"d161fb7c-0168-442c-b2fc-fdcbc9fc83e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer Information",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"customer name update\",\r\n    \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/customers/6fe225c0-6364-45c0-a1d8-44be7e0269da",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"customers",
+								"6fe225c0-6364-45c0-a1d8-44be7e0269da"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Update Customer Information",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"customer name update\",\r\n    \"phone\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/customers/d161fb7c-0168-442c-b2fc-fdcbc9fc83e0",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"customers",
+								"d161fb7c-0168-442c-b2fc-fdcbc9fc83e0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bikes",
+			"item": [
+				{
+					"name": "Create Bike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\" : \"brand name\",\r\n    \"model\" : \"model name\",\r\n    \"year\" : 2022,\r\n    \"customerId\" : \"4bf221a2-e111-4fed-ada7-660566b20ce8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/bikes",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"bikes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Create Bike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\" : \"brand name\",\r\n    \"model\" : \"model name\",\r\n    \"year\" : 2022,\r\n    \"customerId\" : \"d161fb7c-0168-442c-b2fc-fdcbc9fc83e0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/bikes",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"bikes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All bikes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\" : \"brand name\",\r\n    \"model\" : \"model name\",\r\n    \"year\" : 2022,\r\n    \"customerId\" : \"3cf0adc9-77ec-4001-9296-a7e8aa10d7af\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/bikes",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"bikes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Fetch All bikes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\" : \"brand name\",\r\n    \"model\" : \"model name\",\r\n    \"year\" : 2022,\r\n    \"customerId\" : \"3cf0adc9-77ec-4001-9296-a7e8aa10d7af\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/bikes",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"bikes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Bike by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\" : \"brand name\",\r\n    \"model\" : \"model name\",\r\n    \"year\" : 2022,\r\n    \"customerId\" : \"3cf0adc9-77ec-4001-9296-a7e8aa10d7af\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/bikes/36890615-c147-4cc9-beba-94772a070cb0",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"bikes",
+								"36890615-c147-4cc9-beba-94772a070cb0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Single Bike by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\" : \"brand name\",\r\n    \"model\" : \"model name\",\r\n    \"year\" : 2022,\r\n    \"customerId\" : \"3cf0adc9-77ec-4001-9296-a7e8aa10d7af\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/bikes/9a06c725-44a7-4320-b035-af11c9043117",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"bikes",
+								"9a06c725-44a7-4320-b035-af11c9043117"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "Create Service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bikeId\": \"7d1344ef-bfe1-43fa-80cd-59ce86f1d02f\",\r\n    \"serviceDate\": \"2025-05-11T10:00:00.000Z\",\r\n    \"description\": \"Oil change\",\r\n    \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/services",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Create Service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bikeId\": \"9a06c725-44a7-4320-b035-af11c9043117\",\r\n    \"serviceDate\": \"2025-05-11T10:00:00.000Z\",\r\n    \"description\": \"Oil change 2\",\r\n    \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/services",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch All Services",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bikeId\": \"f3f1b192-3e62-402e-9bd3-d351a5a10e92\",\r\n  \"serviceDate\": \"2025-04-11T10:00:00.000Z\",\r\n  \"description\": \"Oil change\",\r\n  \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/services",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Fetch All Services",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bikeId\": \"f3f1b192-3e62-402e-9bd3-d351a5a10e92\",\r\n  \"serviceDate\": \"2025-04-11T10:00:00.000Z\",\r\n  \"description\": \"Oil change\",\r\n  \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/services",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get OverDue Services",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bikeId\": \"f3f1b192-3e62-402e-9bd3-d351a5a10e92\",\r\n  \"serviceDate\": \"2025-04-11T10:00:00.000Z\",\r\n  \"description\": \"Oil change\",\r\n  \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/services/status",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"services",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Get OverDue Services",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bikeId\": \"f3f1b192-3e62-402e-9bd3-d351a5a10e92\",\r\n  \"serviceDate\": \"2025-04-11T10:00:00.000Z\",\r\n  \"description\": \"Oil change\",\r\n  \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/services/status",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"services",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Services",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bikeId\": \"f3f1b192-3e62-402e-9bd3-d351a5a10e92\",\r\n  \"serviceDate\": \"2025-04-11T10:00:00.000Z\",\r\n  \"description\": \"Oil change\",\r\n  \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/services/fcbaacf0-31f7-4c48-b45d-f7ff624c8ec8",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"services",
+								"fcbaacf0-31f7-4c48-b45d-f7ff624c8ec8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Get Single Services",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bikeId\": \"f3f1b192-3e62-402e-9bd3-d351a5a10e92\",\r\n  \"serviceDate\": \"2025-04-11T10:00:00.000Z\",\r\n  \"description\": \"Oil change\",\r\n  \"status\": \"pending\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/services/b38d41af-5297-4005-879c-95fa58fdbd20",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"services",
+								"b38d41af-5297-4005-879c-95fa58fdbd20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Service",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bikeId\": \"f3f1b192-3e62-402e-9bd3-d351a5a10e92\",\r\n  \"serviceDate\": \"2025-06-11T10:00:00.000Z\",\r\n  \"description\": \"Oil change\",\r\n  \"status\": \"pending\",\r\n  \"completionDate\"  : \"2025-06-12T10:00:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{bike_servic_base_url}}/services/8c6bd29f-ccb6-4900-8412-25d8c1e4b4ef/complete",
+							"host": [
+								"{{bike_servic_base_url}}"
+							],
+							"path": [
+								"services",
+								"8c6bd29f-ccb6-4900-8412-25d8c1e4b4ef",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vercel Update Service",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bikeId\": \"f3f1b192-3e62-402e-9bd3-d351a5a10e92\",\r\n  \"serviceDate\": \"2025-06-11T10:00:00.000Z\",\r\n  \"description\": \"Oil change\",\r\n  \"status\": \"pending\",\r\n  \"completionDate\"  : \"2025-06-12T10:00:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{vercel_live_url}}/services/b38d41af-5297-4005-879c-95fa58fdbd20/complete",
+							"host": [
+								"{{vercel_live_url}}"
+							],
+							"path": [
+								"services",
+								"b38d41af-5297-4005-879c-95fa58fdbd20",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bike_servic_base_url",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		},
+		{
+			"key": "vercel_live_url",
+			"value": "https://assignment-8-bice.vercel.app/api",
+			"type": "string"
+		}
+	]
+}
