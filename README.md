@@ -98,7 +98,7 @@ A backend API for managing customers, bikes, and service records at a bike servi
       {
         "brand": "Yamaha",
         "model": "R15",
-        "year": 2022,
+        "year": 2024,
         "customerId": "87b3d7e1-8d9a-4f51-bf01-6f1e92f0f194"
       }
       ```
@@ -121,9 +121,8 @@ A backend API for managing customers, bikes, and service records at a bike servi
       ```json
       {
         "bikeId": "f3f1b192-3e62-402e-9bd3-d351a5a10e92",
-        "serviceDate": "2025-04-11T10:00:00.000Z",
-        "description": "Oil change",
-        "status": "pending"
+        "serviceDate": "2025-05-30T10:00:00.000Z",
+        "description": "Oil change"
       }
       ```
     * **Response (201 Created)**
@@ -141,7 +140,7 @@ A backend API for managing customers, bikes, and service records at a bike servi
     * **Request Body (optional)**
 
       ```json
-      { "completionDate": "2025-04-11T15:30:00.000Z" }
+      { "completionDate": "2025-06-11T15:30:00.000Z" }
       ```
     * **Response (200 OK)**
 
