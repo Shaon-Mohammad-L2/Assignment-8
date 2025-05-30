@@ -96,7 +96,7 @@ const fetchSingleServiceById = async (serviceId: string) => {
 // update service by id.
 const updateService_byID_intoDB = async (
   serviceId: string,
-  payload: Partial<ServiceRecord>,
+  payload: Partial<ServiceRecord>
 ) => {
   const service = await prisma.serviceRecord.findUnique({
     where: { serviceId },
@@ -113,7 +113,7 @@ const updateService_byID_intoDB = async (
     throw new AppError(
       400,
       "completionDate",
-      "Completion date must be after service date",
+      "Completion date must be after service date"
     );
   }
   const updateData = {
@@ -139,6 +139,23 @@ const fetchOverDueServices = async () => {
         { status: ServiceStatus.PENDING },
         { status: ServiceStatus.IN_PROGRESS },
       ],
+    },
+    include: {
+      bike: {
+        select: {
+          brand: true,
+          model: true,
+          year: true,
+          customer: {
+            select: {
+              customerId: true,
+              name: true,
+              phone: true,
+              email: true,
+            },
+          },
+        },
+      },
     },
   });
 
