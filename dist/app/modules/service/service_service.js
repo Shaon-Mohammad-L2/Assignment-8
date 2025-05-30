@@ -135,6 +135,23 @@ const fetchOverDueServices = () => __awaiter(void 0, void 0, void 0, function* (
                 { status: prisma_1.ServiceStatus.IN_PROGRESS },
             ],
         },
+        include: {
+            bike: {
+                select: {
+                    brand: true,
+                    model: true,
+                    year: true,
+                    customer: {
+                        select: {
+                            customerId: true,
+                            name: true,
+                            phone: true,
+                            email: true,
+                        },
+                    },
+                },
+            },
+        },
     });
     return services;
 });
