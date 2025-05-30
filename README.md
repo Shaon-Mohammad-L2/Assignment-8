@@ -62,27 +62,110 @@ A backend API for managing customers, bikes, and service records at a bike servi
 
 * **Customer Management**
 
-  * Create, read, update, delete customers (`/api/customers`)
-  * Get a specific customer by ID (`/api/customers/:customerId`)
-  * Delete a specific customer by ID (`/api/customers/:customerId`)	
-	
+  * **Create Customer** (`POST /api/customers`)
+
+    * **Request Body**
+
+      ```json
+      {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "phone": "123-456-7890"
+      }
+      ```
+    * **Response (201 Created)**
+
+  * **Get All Customers** (`GET /api/customers`)
+
+    * **Response (200 OK)**
+
+
+  * **Get Customer by ID** (`GET /api/customers/:customerId`)
+
+    * **Response (200 OK)**
+
+  * **Delete Customer** (`DELETE /api/customers/:customerId`)
+
+    * **Response (200 OK)**
+
 * **Bike Management**
 
-  * Add, view, update bikes (`/api/bikes`)
-  * Get a specific bike by ID (`/api/bikes/:bikeId`)
+  * **Add Bike** (`POST /api/bikes`)
+
+    * **Request Body**
+
+      ```json
+      {
+        "brand": "Yamaha",
+        "model": "R15",
+        "year": 2022,
+        "customerId": "87b3d7e1-8d9a-4f51-bf01-6f1e92f0f194"
+      }
+      ```
+    * **Response (201 Created)**
+
+  * **Get All Bikes** (`GET /api/bikes`)
+
+    * **Response (200 OK)**
+
+  * **Get Bike by ID** (`GET /api/bikes/:bikeId`)
+
+    * **Response (200 OK)**
 
 * **Service Record Management**
 
-  * Create, read, update services (`/api/services`)
-  * Get a specific service record by ID (`/api/services/:serviceId`)
-  * Mark services as completed (`/api/services/:serviceId/complete`)
+  * **Create Service** (`POST /api/services`)
+
+    * **Request Body**
+
+      ```json
+      {
+        "bikeId": "f3f1b192-3e62-402e-9bd3-d351a5a10e92",
+        "serviceDate": "2025-04-11T10:00:00.000Z",
+        "description": "Oil change",
+        "status": "pending"
+      }
+      ```
+    * **Response (201 Created)**
+
+  * **Get All Services** (`GET /api/services`)
+
+    * **Response (200 OK)**
+
+  * **Get Service by ID** (`GET /api/services/:serviceId`)
+
+    * **Response (200 OK)**
+
+  * **Complete Service** (`PUT /api/services/:serviceId/complete`)
+
+    * **Request Body (optional)**
+
+      ```json
+      { "completionDate": "2025-04-11T15:30:00.000Z" }
+      ```
+    * **Response (200 OK)**
 
 * **Overdue & Pending Services**
 
-  * Endpoint to retrieve jobs pending or in-progress older than 7 days (`/api/services/status`)
+  * **Get Pending/Overdue** (`GET /api/services/status`)
+
+    * **Response (200 OK)**
 
 * **Error Handling**
 
-  * Standardized error response format with status codes and optional stack trace in development
+  * Standardized error response:
 
----
+    ```json
+    {
+    "status": 404,
+    "success": false,
+    "message": "Customer Not found",
+    "error": [
+        {
+            "path": "id",
+            "message": "Customer Not found"
+        }
+    ],
+    "stack": null
+    }
+    ```
